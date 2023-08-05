@@ -40,41 +40,46 @@
       </div>
     </div>
   </header>
-
-  <main class="container">
-    <div class="card" v-for="card in filteredAndSortedCards" :key="card.id">
-      <div>
-        <img
-          class="cover"
-          :src="card.images[0].landscape[0]"
-          alt="article cover image"
-        />
-        <div class="wrap">
-          <div class="info">
-            <span class="abbr">{{ getAuthorInitials(card.author) }}</span>
-            <div>
-              <span class="author">{{ card.author }}</span>
-              <span class="date">{{ formatDate(card.dateAdded) }}</span>
-            </div>
-          </div>
-          <h2 class="title">{{ card.title }}</h2>
-        </div>
-      </div>
-      <div class="likes">
-        <button
-          @click="toggleLike(card)"
-          :class="{ 'liked-btn-active': card.liked }"
-          class="like-btn"
-        >
-          Like
-        </button>
+  <div class="vh">
+    <main class="container">
+      <div class="card" v-for="card in filteredAndSortedCards" :key="card.id">
         <div>
-          <img class="lk-icon" src="./assets/heart-icon.svg" alt="heart icon" />
-          <span>{{ card.likes }} Likes</span>
+          <img
+            class="cover"
+            :src="card.images[0].landscape[0]"
+            alt="article cover image"
+          />
+          <div class="wrap">
+            <div class="info">
+              <span class="abbr">{{ getAuthorInitials(card.author) }}</span>
+              <div>
+                <span class="author">{{ card.author }}</span>
+                <span class="date">{{ formatDate(card.dateAdded) }}</span>
+              </div>
+            </div>
+            <h2 class="title">{{ card.title }}</h2>
+          </div>
+        </div>
+        <div class="likes">
+          <button
+            @click="toggleLike(card)"
+            :class="{ 'liked-btn-active': card.liked }"
+            class="like-btn"
+          >
+            Like
+          </button>
+          <div>
+            <img
+              class="lk-icon"
+              src="./assets/heart-icon.svg"
+              alt="heart icon"
+            />
+            <span>{{ card.likes }} Likes</span>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
 
   <footer>
     <span>Copyright &copy; Younes Cherkaoui</span> <span>2023</span>
